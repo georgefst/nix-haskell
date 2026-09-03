@@ -422,13 +422,10 @@ in {
         '';
       };
 
-      # HLS 2.14 requires significant patches to work with GHC 9.14, particularly for the Ormolu+Fourmolu plugins.
-      # So we build a more recent version from source instead, from the `master` branch.
-      # We should be able to just bump this to "2.15" once that's released (expected early-mid September).
       haskell-nix.options.shell.tools.haskell-language-server = mkDefault {
         src = builtins.fetchGit {
           url = "https://github.com/haskell/haskell-language-server.git";
-          rev = "16bf0466293daabac6f216d2af7e5bccbb91fcc1";
+          rev = "1b4b3c6bdd2bf8d1e1182e2e770f5dea9198db80";
         };
         cabalProjectLocal = ''
           package *
